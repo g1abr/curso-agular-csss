@@ -1,0 +1,10 @@
+div h1{/*Definición de un estilo en función del contexto.*/
+    text-decoration: overline;
+   /* text-indent: 200px;  La propiedad text-indent, indenta la primera linea de un texto. A partir de la segunda línea, el texto aparece sin indentación. Podemos indicar un
+    valor negativo con lo que la indentación es hacia la izquierda.
+    */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgba(255, 0, 0, 0.39);
+    text-align: center;
+    text-transform:none;
+}

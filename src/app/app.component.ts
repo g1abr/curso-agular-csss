@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Curso-angular-css';
+  bienvenida= 'Bienvenido a mi sitio web';
+  user='Gabriela Andrea';
+  sitio='Perfil Laboral';
+
+  recibirMensajeHijo(evento: string){
+    alert(evento);
+   }
+  
+
 }
+ 
