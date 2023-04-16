@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FromEndComponent } from './from-end.component';
+import { ListaBasicaComponent } from './lista-basica.component';
 
-describe('FromEndComponent', () => {
-  let component: FromEndComponent;
-  let fixture: ComponentFixture<FromEndComponent>;
+describe('ListaBasicaComponent', () => {
+  let component: ListaBasicaComponent;
+  let fixture: ComponentFixture<ListaBasicaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FromEndComponent ]
+      declarations: [ ListaBasicaComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(FromEndComponent);
+    fixture = TestBed.createComponent(ListaBasicaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
