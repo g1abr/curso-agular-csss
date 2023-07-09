@@ -1,21 +1,80 @@
 <div class="contenido">
-    <h1>Tareas</h1>
+  <!-- Directivas de Bloque de atributo -->
+    <h1 [ngStyle]="{ color: 'red', textAlign: 'center'}">Lista de tareas</h1>
 
-    <table class="tabla">
-        <tr>
-          <td >Estado</td>
-          <td>Nombre</td>
-        </tr>
-        <tr>
-          <td>Terminada</td>
-          <td>Sumar vectores</td>
-        </tr>
-        <tr>
-            <td>Inconclusa</td>
-            <td>La segunda guerra mundial</td>
-          </tr>
-          
-      </table>
-      
+    <p ngClass="underLined">Aquí vamos a iterar sobre una lista  y mostrar  varios elementos</p>
 
+    <p [ngClass]="['underLined', 'small']">Aún no tienes elementos en la lista.</p>
+
+    <p [ngClass]="{underLined:false, small: true}">Aún no tienes elementos en la lista.</p>
+    
+<!-- TODO: Bloque de directivas estructurales -->
+
+<div class="center">
+ <button (click)="cambiarCargando()"[ngClass]="{boton: true }" >{{cargando ? 'Terminar carga': 'Iniciar Carga'}}</button>
+</div>
+
+ <ng-container *ngIf="!cargando; else templateEspera">
+<p>Todo listo</p>
+ </ng-container>
+
+<ng-template #templateEspera>
+  <p>Cargando</p>
+<p>Espere a que termine el proceso</p>
+</ng-template>
+
+
+<!-- ngFor -->
+<h1 style="text-align: center ">Lista de compra</h1>
+<!-- <div *ngFor="let producto of listaElemento">
+  <ul>
+    <li>{{producto}}</li>
+  </ul>
+</div> -->
+
+<!--  let i = index; let even = even Para mostrar los numeros. 
+si solos mostramos la variable empeza a contar desde cero y por eso se agrega mas uno. En resumidas cuenta es un contador
+-->
+<!-- ahora se agregara cierto estilo depende de que sea par o impar  -->
+<div *ngFor="let producto of listaElemento; let i = index; let even = even">
+  <div [ngStyle]="even?{backgroundColor: '#1976d2', color: 'white',  margin: '4px' , padding:'5px'}: {backgroundColor: 'red', color: 'white' , padding: '5px', margin: '4px' }">
+      <p>{{ i +1 }} </p>
+      <p>{{ producto.nombre }} - {{ producto.precio }} Pesos Colombianos</p>
+      <p>{{ producto.descripcion }}</p>
+    </div>
+</div>
+
+<!-- Bloque ngSwitch -->
+<div [ngSwitch]="opcion"> 
+  <p [id]="1" *ngSwitchCase="1">Has escogido la Opcion 1</p>
+  <p [id]="2" *ngSwitchCase="2">Has escogido la Opcion 2</p>
+  <p [id]="3" *ngSwitchCase="3">Has escogido la Opcion 3</p>
+  <p [id]="4" *ngSwitchCase="4"> Has escogido la Opcion 4</p>
+  <p *ngSwitchDefault class="cerrar"></p>
+
+</div>
+<!-- Selección de opcion -->
+<div>
+  <input type="radio" name="opcion" (click)="escogerOpcion(1)" value="">Opción 1
+  <input type="radio" name="opcion" (click)="escogerOpcion(2)" value="">Opción 2
+  <input type="radio" name="opcion" (click)="escogerOpcion(3)" value="">Opción 3
+  <input type="radio" name="opcion" (click)="escogerOpcion(4)" value="">Opción 4
+  <input type="radio" name="opcion" selected="selected" (click)="escogerOpcion(0)">Ocular
+</div>
+
+<!-- Podemos concatenar directivas  -->
+
+</div>
+
+<div class="contenido">
+  <h1>Producto de má de diez euros</h1>
+  <div *ngFor="let producto of listaElemento; let i = index; let even = even">
+    <!-- Ámbito de For donde tenemos acceso a "Producto" -->
+  <!-- Codicion para rederizar aquellos productos que sean mayores a diez euros -->
+    <div *ngIf="producto.precio>10" [ngStyle]="even?{backgroundColor: '#1976d2', color: 'white',  margin: '4px' , padding:'5px'}: {backgroundColor: 'red', color: 'white' , padding: '5px', margin: '4px' }">
+        <p>{{ i +1 }} </p>
+        <p>{{ producto.nombre }} - {{ producto.precio }} </p>
+        <p>{{ producto.descripcion }}</p>
+      </div>
+  </div>
 </div>
