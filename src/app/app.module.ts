@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { FormularioComponent } from './components/formulario/formulario.component';
 import { FormsModule } from '@angular/forms';
 import { ListasModule } from './modules/listas/listas.module';
+import { ListaContactoComponent } from './components/lista-contacto/lista-contacto.component';
 
 
 
@@ -13,6 +14,7 @@ import { ListasModule } from './modules/listas/listas.module';
   declarations: [
     AppComponent,
     FormularioComponent,
+    ListaContactoComponent,
  
   ],
   imports: [

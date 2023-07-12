@@ -1,0 +1,19 @@
+<h3 [ngStyle]="{textAlign: 'center'}">lista de contacto</h3> 
+
+<div *ngFor="let contacto of listaContactos" class="contenido">
+    <p class="contacto" (click)="obtenerContacto(contacto.id)">{{contacto.nombre}}</p>
+</div>
+
+<ng-container *ngIf="contactoSeleccionado; else noContactoSeleccionado">
+    <div class="datos-contacto">
+        <h6>Datos de contacto:</h6>
+        <h2>Nombre: {{contactoSeleccionado.nombre}}</h2>
+        <h2>Apellido: {{contactoSeleccionado.apellidos}}</h2>
+        <h2>Correo: {{contactoSeleccionado.email}}</h2>
+        <h2>Número: {{contactoSeleccionado.numero}}</h2>
+    </div>
+</ng-container>
+
+<ng-template #noContactoSeleccionado>
+    <p class="no-contacto-seleccionado">No has seleccionado ningún contacto</p>
+</ng-template>
